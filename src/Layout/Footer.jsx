@@ -6,7 +6,7 @@ import "./footer.css"
 const Footer = (props) => {
 
   return (
-    <footer id="footer" className="w-100">
+    <footer id="footer" className="">
         <Navbar color="light" light expand="xs" className="">
             <NavbarBrand>TRACER-O</NavbarBrand>
             <Nav className="mr-auto" navbar>

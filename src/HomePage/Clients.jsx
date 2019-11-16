@@ -36,10 +36,11 @@ function Clients () {
             <Col lg={12} className="m-5">
                 <h3>Nos principaux clients</h3>
             </Col>
-            <Row className="justify-content-around w-100">
-            {clients.map(client => <Client {...client} />)}
-            
-            </Row>
+            <Col xl={10} className="offset-xl-1">
+                <Row className="justify-content-around w-100">
+                    {clients.map(client => <Client {...client} />)}
+                </Row>
+            </Col>
 
 
         </Row>

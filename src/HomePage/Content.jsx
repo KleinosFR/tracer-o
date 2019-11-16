@@ -9,7 +9,7 @@ import Clients from "./Clients"
 function HomeContent () {
 
     return(
-        <Container fluid className="">
+        <Container fluid style={{maxWidth : "99%"}} className="m-0 p-0">
             <Intro />
             <Destination />
             <Clients />
