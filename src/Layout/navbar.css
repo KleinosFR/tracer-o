@@ -1,0 +1,39 @@
+#navbarRow{
+    position: fixed;
+    top: 0px;
+    background-image: url("../assets/img/logo2.png");
+    background-size: cover;
+    background-position-x: 100%;
+    height: 75vh;
+    width : 50px;
+    color: rgba(0,0,0,1);
+    transition-duration: 1s;
+    z-index: 10;
+
+}
+
+#navbarRow ul li h3{
+    width : 50px;
+    text-indent: -200px;
+    transition-duration: 1s;
+
+}
+
+#navbarRow ul {
+    display: flex;
+    flex-direction: column;
+justify-content: center;} 
+
+#navbarRow:hover {
+    height: 75vh;
+    width : 250px;
+    color: rgba(0,0,0,1);
+    transition-duration: 1s;
+}
+
+#navbarRow:hover ul li h3{
+    width : 250px;
+    text-indent: 20px;
+    transition-duration: 1s;
+} 
+
