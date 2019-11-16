@@ -1,24 +1,12 @@
-import React, { useState } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+import React from 'react';
+import {Navbar, NavbarBrand, Nav, NavItem, NavLink,} from 'reactstrap';
+
+import "./footer.css"
 
 const Footer = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <footer id="footer" className="w-100">
         <Navbar color="light" light expand="xs" className="">
             <NavbarBrand>TRACER-O</NavbarBrand>
             <Nav className="mr-auto" navbar>
@@ -39,7 +27,7 @@ const Footer = (props) => {
             </Nav>
             
         </Navbar>
-    </div>
+    </footer>
   );
 }
 

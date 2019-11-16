@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Col} from "reactstrap"
+import {Col} from "reactstrap"
 
 import Header from "./Header" 
 import Navbar from "./Navbar"

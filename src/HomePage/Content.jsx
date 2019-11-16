@@ -1,14 +1,21 @@
 import React from "react"
-import {Row} from "reactstrap"
+import {Container} from "reactstrap"
 
 import "./content.css"
+import Intro from "./Intro"
+import Destination from "./Destination"
+import Clients from "./Clients"
 
 function HomeContent () {
 
     return(
-        <Row id="homeContent"className="bg-primary">
-            <p>TEST</p>
-        </Row>
+        <Container fluid className="">
+            <Intro />
+            <Destination />
+            <Clients />
+
+
+        </Container>
     )
 
 
