@@ -15,8 +15,8 @@ const handleLink = (path) =>{
 
 
   return (
-    <footer id="footer" className="">
-        <Navbar color="light" light expand="lg" className="">
+    <footer id="footer" className="text-center">
+        <Navbar light expand="lg" className="">
             <NavbarBrand className="col-12 col-lg-1"><h5>TRACER-O</h5></NavbarBrand>
             <Nav className="mr-auto col-12 col-lg-6 justify-content-center my-2" navbar>
                 <NavItem>
@@ -33,9 +33,9 @@ const handleLink = (path) =>{
                 </NavItem>
 
             </Nav>
-            <Nav className="ml-auto col-lg-4 my-2" navbar>
+            <Nav className="mr-1 col-lg-4 my-2 p-0 justify-content-end" navbar>
                 <NavItem>
-                    Made with ❤ by <a className="text-dark" href="https://stephane-lavaud.dev">Stéphane LAVAUD</a>  - All rights reserved 2019
+                    Made with ❤ by <a  href="https://stephane-lavaud.dev">Stéphane LAVAUD</a>  - All rights reserved 2019
                 </NavItem>
             </Nav>
             

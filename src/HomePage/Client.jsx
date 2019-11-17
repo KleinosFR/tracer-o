@@ -5,14 +5,14 @@ import {Col} from "reactstrap"
 function Client ({clientName, clientLogo }) {
 
     return (
-        <Col xl={1} xs={6}>
+        <Col xl={2} lg={3} xs={6}>
             <figure>
                 <img 
                 src={clientLogo} 
                 alt={clientName}
                 width="100%"
                 />
-                <figcaption>{clientName}</figcaption>
+                <figcaption className="text-center">{clientName}</figcaption>
             </figure>
         </Col>
 
