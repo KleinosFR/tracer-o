@@ -33,10 +33,10 @@ function Clients () {
     return(
 
         <Row className="my-5 w-100">
-            <Col lg={12} xs={12} className="m-lg-5 my-2">
+            <Col lg={12} xs={12} className="my-lg-2 my-2">
                 <h3>Nos principaux clients</h3>
             </Col>
-            <Col xl={10} xs={12} className="offset-xl-1 offset-1">
+            <Col xl={10} lg={10} xs={12} className="offset-xl-1 offset-1">
                 <Row className="justify-content-around w-100">
                     {clients.map(client => <Client {...client} />)}
                 </Row>
