@@ -1,19 +1,22 @@
 import React from "react"
-import {Row, Col} from "reactstrap"
+import {Col} from "reactstrap"
+
+import "./header.css"
+
 
 
 function Header () {
 
     return (
-        <Row className="w-100 my-3">
-            <Col xs={12} lg={2}>
+        <header className="row w-100 mb-2 pt-5 py-lg-3 py-xl-4 pb-xl-2 mx-auto align-items-center">
+            <Col xs={12} lg={4} xl={4} className="align-items-center offset-lg-1 mt-5 mt-lg-0 mt-xl-0">
         <h1 style={{color : "darkgreen"}} className="text-center"> TRACER-O </h1>
             </Col>
-            <Col lg={10} xs={12}>
+            <Col xs={12} lg={6} xl={7}>
                 <h2 className="text-center">Transport de Marchandises et de Colis Express</h2>
             
             </Col>
-        </Row>
+        </header>
     )
 
 

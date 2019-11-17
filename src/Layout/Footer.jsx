@@ -17,7 +17,7 @@ const handleLink = (path) =>{
   return (
     <footer id="footer" className="">
         <Navbar color="light" light expand="lg" className="">
-            <NavbarBrand className="col-12 col-lg-1">TRACER-O</NavbarBrand>
+            <NavbarBrand className="col-12 col-lg-1"><h5>TRACER-O</h5></NavbarBrand>
             <Nav className="mr-auto col-12 col-lg-6 justify-content-center my-2" navbar>
                 <NavItem>
                     <NavLink onClick={() => handleLink("/")}>Accueil</NavLink>

@@ -8,10 +8,11 @@ function Navbar() {
     return(
     <nav>    
         <Row id="navbarRow" className="">
+            <h4 id="menuTitle">Menu</h4>
             <ul className="row p-0">
-                <li className="col-2 my-3"><h3 className="text-left">Accueil</h3></li>
-                <li className="col-2 my-3"><h3 className="text-left">Contact</h3></li>
-                <li className="col-2 my-3"><h3 className="text-left">Devis en ligne</h3></li>
+                <li className="col-2 my-3"><h4 className="text-left">Accueil</h4></li>
+                <li className="col-2 my-3"><h4 className="text-left">Contact</h4></li>
+                <li className="col-2 my-3"><h4 className="text-left">Devis en ligne</h4></li>
             </ul>    
         </Row>
     </nav> 
