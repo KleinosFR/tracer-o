@@ -5,7 +5,7 @@ import {Col} from "reactstrap"
 function Client ({clientName, clientLogo }) {
 
     return (
-        <Col xl={1}>
+        <Col xl={1} xs={6}>
             <figure>
                 <img 
                 src={clientLogo} 
