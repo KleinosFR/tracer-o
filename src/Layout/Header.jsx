@@ -1,24 +1,22 @@
 import React from "react"
-import {Row, Col} from "reactstrap"
+import {Col} from "reactstrap"
 
-import logo from "../assets/img/logo.png"
+import "./header.css"
+
 
 
 function Header () {
 
     return (
-        <Row className="w-100 mb-4 pt-1 pb-xl-4 mx-auto bg-light align-items-center">
-            <Col xs={12} lg={2}>
-            <img width={"75%"} src={logo} alt="logo" />
-            </Col>
-            <Col xs={12} lg={2} className="align-items-center my-2">
+        <header className="row w-100 mb-2 pt-5 py-lg-3 py-xl-4 pb-xl-2 mx-auto align-items-center">
+            <Col xs={12} lg={4} xl={4} className="align-items-center offset-lg-1 mt-5 mt-lg-0 mt-xl-0">
         <h1 style={{color : "darkgreen"}} className="text-center"> TRACER-O </h1>
             </Col>
-            <Col xs={12} lg={8}>
+            <Col xs={12} lg={6} xl={7}>
                 <h2 className="text-center">Transport de Marchandises et de Colis Express</h2>
             
             </Col>
-        </Row>
+        </header>
     )
 
 
