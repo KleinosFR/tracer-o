@@ -18,7 +18,11 @@
     width : 50px;
     text-indent: -500px;
     transition-duration: 0.5s;
+}
 
+#navbarRow ul li a h4{
+    color:white;
+    text-decoration: none;
 }
 
 #navbarRow ul {
@@ -56,3 +60,7 @@ list-style: none;}
     transition-duration: 1s;
 } 
 
+#navbarRow ul li a:hover h4:hover {
+    color:white;
+    text-decoration: none;
+}
