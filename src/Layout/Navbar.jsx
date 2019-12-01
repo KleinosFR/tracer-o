@@ -13,14 +13,11 @@ function Navbar() {
             <ul className="row p-0">
                 <li className="col-2 my-3"><Link to="/"><h4 className="text-left">Accueil</h4></Link></li>
                 <li className="col-2 my-3"> <Link to="/contact"><h4 className="text-left">Contact</h4></Link></li>
-                <li className="col-2 my-3"><h4 className="text-left">Devis en ligne</h4></li>
+                <li className="col-2 my-3"> <Link to="/devis"><h4 className="text-left">Devis en ligne</h4></Link></li>
             </ul>    
         </Row>
     </nav> 
-        
-
-
-    )
+)
 
 
 
