@@ -53,6 +53,9 @@ function CotationPage() {
 
     const handleDistance = () => {
 
+        let distanceVar = 0
+        let durationVar = 0
+
         Axios.get(`https://trueway-matrix.p.rapidapi.com/CalculateDrivingMatrix`, 
             {
             headers: {
@@ -66,22 +69,21 @@ function CotationPage() {
             }
         })
         .then(async response => {
-
+            console.log(response)
             const calcDistance = response.data.distances[0]
+            const calcDuration = response.data.durations[0]
             console.log("distance en km", calcDistance[0]/1000 );
             await SetDistance(calcDistance[0]/1000)
+            distanceVar = calcDistance[0]/1000
+            durationVar = Math.round(calcDuration[0]/60)
+
         })
         .catch(err => {
             console.log(err);
         })
         .then( async () =>{
 
-            for (let i = 0; i < 10E10; i++) {
-                
-            }
-
-
-            const calcCost = await calculation(distance)
+            const calcCost = await calculation(distanceVar, durationVar)
             await SetCost(calcCost);
             console.log("cost", cost);
             }
@@ -125,7 +127,10 @@ return(
         {distance === 0 ? <> </> :
         <>
         <p>Distance de transport estimée : {distance} Km</p>
-        <p>Cout estimé de la livraison : {cost}</p>
+        <p>Cout estimé de la livraison : {cost} € HT</p>
+        <p>Cout estimé de la livraison : {(Math.round((cost+cost*0.2)*100))/100} € TTC</p>
+
+
         </>
         }
 

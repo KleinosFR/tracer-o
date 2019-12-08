@@ -1,20 +1,37 @@
 
 
-const calculation = async (distance) => {
+const calculation = async (distance, duration) => {
+    
+    const termeJournalier = 12.01;
 
-    let cost = 0;
+    const termeJournalierPerMin = termeJournalier/8/60;
+
+    let distanceCost = 0;
+    let durationCost = 0;
+    let totalCost = 0;
+    
+    
+
+
 
     if (distance<20) {
 
-        cost = ( 9.15 + (distance*0.7));
-        console.log(cost);
-        return cost;
+        
+        distanceCost = Math.round(9.15 + (distance*0.7));
+        durationCost = Math.round(termeJournalierPerMin*duration*100)/100;
+
+        totalCost = distanceCost + durationCost
+
+        console.log(totalCost);
+        return totalCost;
 
     } else {
 
-        cost = (distance*0.7);
-        console.log(cost);
-        return cost;
+        distanceCost = Math.round(distance*0.7);
+        durationCost = Math.round(termeJournalierPerMin*duration*100)/100;
+
+        console.log(totalCost);
+        return totalCost;
 
     }
 
