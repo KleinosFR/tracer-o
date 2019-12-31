@@ -23,7 +23,7 @@ const handleLink = (path) =>{
                     <NavLink onClick={() => handleLink("/")}>Accueil</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink>Contact</NavLink>
+                    <NavLink onClick={() => handleLink("/contact")}>Contact </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink>Devis en ligne</NavLink>

@@ -9,3 +9,9 @@
     color : black;
 }
 
+
+#footer .navbar a:hover { 
+    color: #fff !important;
+    cursor: pointer;
+ }
+
