@@ -31,7 +31,6 @@ const clients = [
 function Clients () {
 
     return(
-
         <Row className="my-5">
             <Col xl={11} lg={11} xs={12} className="my-xl-2 my-2 offset-xl-1 offset-lg-1">
                 <h3>Nos principaux clients</h3>
@@ -41,16 +40,8 @@ function Clients () {
                     {clients.map(client => <Client {...client} />)}
                 </Row>
             </Col>
-
-
         </Row>
-
-
-
     )
-
-
-
 }
 
 export default Clients
