@@ -12,3 +12,7 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+#footer .navbar .navbar-brand h5 {
+    font-size: 30px !important;
+}

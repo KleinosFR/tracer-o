@@ -11,19 +11,6 @@ import CotationIntroText from "./CotationIntroText";
 import calculation from "./calculation";
 import CotationForm from "./CotationForm";
 
-// const convertAddressToLatLng = (address) => {
-
-//     let geocoded = {}
-
-//     geocodeByAddress(address)
-//     .then(results => getLatLng(results[0]))
-//     .then((res) => {geocoded =  {lat : res.lat, lng : res.lng}
-// })
-// console.log("geocoded", geocoded)
-// return (geocoded)
-
-// }
-
 function CotationPage() {
     const [distance, SetDistance] = useState(0);
     const [cost, SetCost] = useState(0);
@@ -32,7 +19,7 @@ function CotationPage() {
     const [provCoord, setProvCoord] = useState("");
     const [destCoord, setDestCoord] = useState("");
     const [duration, SetDuration] = useState(0);
-    const [isCostCalculated, SetIsCostCalculated] = useState(true);
+    const [isCostCalculated, SetIsCostCalculated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isVoid, setIsVoid] = useState(false);
 
@@ -78,10 +65,8 @@ function CotationPage() {
                 }
             )
                 .then(async response => {
-                    console.log(response);
                     const calcDistance = response.data.distances[0];
                     const calcDuration = response.data.durations[0];
-                    console.log("distance en km", calcDistance[0] / 1000);
                     await SetDistance(calcDistance[0] / 1000);
                     await SetDuration(Math.round(calcDuration[0] / 60));
                     distanceVar = calcDistance[0] / 1000;
@@ -94,8 +79,9 @@ function CotationPage() {
                         durationVar
                     );
                     await SetCost(calcCost);
-                    console.log("cost", cost);
                 })
+
+                // ****** TODO - manage API error *****
                 .catch(err => {
                     console.log(err);
                 })
@@ -176,7 +162,7 @@ function CotationPage() {
 
                 {isLoading ? (
                     <Row className="justify-content-center">
-                        <Col className="justify-content-center">
+                        <Col className="justify-items-center">
                             <Spinner type="grow" color="primary" />
                             <Spinner type="grow" color="secondary" />
                             <Spinner type="grow" color="success" />
@@ -196,6 +182,20 @@ function CotationPage() {
                     <> </>
                 ) : (
                     <Row>
+                        <Col
+                            xl={6}
+                            xs={10}
+                            className="text-center offset-1 my-2 offset-xl-3"
+                            style={{
+                                fontSize: "12px",
+                                color: "red",
+                                border: "1px solid"
+                            }}
+                        >
+                            Cette estimation n'a aucune valeur contractuelle. Le
+                            devis définitif vous sera confirmé en réponse au
+                            formulaire ci-dessous.
+                        </Col>
                         <Col xl={12} className="text-center my-2">
                             Distance de transport estimée : {distance} Km
                         </Col>
