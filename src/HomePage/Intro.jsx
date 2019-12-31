@@ -1,30 +1,50 @@
-import React from "react"
-import {Row, Col} from "reactstrap"
+import React from "react";
+import { Row, Col } from "reactstrap";
 
-import logoFull from "../assets/img/logofull.png"
+import logoFull from "../assets/img/logo-tracer-o.png";
 
-function Intro () {
-
-    return(
-
+function Intro() {
+    return (
         <Row>
-            <Col xl={11} lg={11} xs={12} className="mt-5 offset-xl-1 offset-lg-1 offset-0">
+            <Col
+                xl={11}
+                lg={11}
+                xs={12}
+                className="mt-5 offset-xl-1 offset-lg-1 offset-0"
+            >
                 <h3>Qui sommes nous ?</h3>
             </Col>
             <Col xl={2} lg={3} xs={12} className="offset-xl-1 offset-lg-1 my-4">
-                <img width="100%" src={logoFull} alt="logo" className=""/>
+                <img
+                    width="100%"
+                    src={logoFull}
+                    alt="Tracer-o Transport de Marchandises et de Colis Express"
+                    className=""
+                />
             </Col>
-            <Col xl={8} lg={7} xs={12} className="text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, eaque fuga unde veniam nobis aliquam mollitia animi earum modi natus ipsum tempore necessitatibus aut temporibus reprehenderit nesciunt libero? Neque, recusandae sit! Voluptates, asperiores. Totam doloremque, eius, nobis, animi labore distinctio maiores deserunt eum ex dolor at temporibus atque ipsam vero minus? Id, vero fugit error illo quas numquam aliquid neque voluptas laboriosam, assumenda odio itaque corporis optio, eius ab esse ipsam quam blanditiis enim? Dolorum sed obcaecati libero vel. Sunt, aliquam. Aut corporis culpa, commodi qui nulla sapiente officia sint a temporibus ut inventore, nemo et ab numquam, dolorem velit?
+            <Col
+                xl={8}
+                lg={7}
+                xs={12}
+                className="text-justify d-flex flex-column justify-content-center"
+            >
+                <p>
+                    Avec une expérience de près de 20 ans en livraison de
+                    presse, l’entreprise TRACER-Ô se diversifie et se lance dans
+                    la livraison de colis et dans la messagerie express.
+                </p>
+                <p>
+                    Ayant le respect des délais comme objectif prioritaire, elle
+                    mettra tout en oeuvre pour organiser vos livraisons au prix
+                    le plus juste.
+                </p>
+                <p>
+                    Vous pouvez dors et déjà obtenir un devis en ligne qui sera
+                    précisé par retour de mail dans les plus brefs délais.
+                </p>
             </Col>
         </Row>
-
-
-
-    )
-
-
-
+    );
 }
 
-export default Intro
+export default Intro;

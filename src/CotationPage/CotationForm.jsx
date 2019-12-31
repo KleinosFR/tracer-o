@@ -9,7 +9,7 @@ const encode = data => {
         .join("&");
 };
 
-class ContactContent extends React.Component {
+class CotationForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,9 +17,15 @@ class ContactContent extends React.Component {
             email: "",
             phone: "",
             message: "",
+            cargoKind: "",
+            cargoWeight: "",
+            cargoDimensions: "",
             isSent: false,
             isError: false,
-            isEmailValid: false
+            isEmailValid: false,
+            cotationCost: this.props.cost,
+            cotationDuration: this.props.duration,
+            cotationDistance: this.props.distance
         };
     }
 
@@ -31,7 +37,7 @@ class ContactContent extends React.Component {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...this.state })
+            body: encode({ "form-name": "cotation", ...this.state })
         })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
@@ -42,30 +48,33 @@ class ContactContent extends React.Component {
     handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
     render() {
-        const { name, email, message, phone } = this.state;
+        const {
+            name,
+            email,
+            message,
+            phone,
+            cargoDimensions,
+            cargoKind,
+            cargoWeight
+        } = this.state;
         return (
-            <Row className="w-100">
-                <h3 className="col-10 offset-1 text-center my-5">
-                    Contactez-nous
+            <Row>
+                <h3 className="col-xl-10 offset-xl-1 text-center my-3 ">
+                    Confirmez votre demande de devis
                 </h3>
-                <Row className="col-xl-6 offset-xl-3 mt-xl-3 col-12 offset-1">
-                    <p className="text-center">
-                        Envoyez nous un message et nous reviendrons vers vous
-                        dans les plus brefs délais
-                    </p>
-                </Row>
-                <Row className="w-100">
+                <Row>
                     <Col
-                        xl={12}
-                        className="justify-content-center my-xl-5 my-2"
+                        xl={10}
+                        xs={10}
+                        className="justify-content-center my-2 offset-1"
                     >
                         <Form
                             onSubmit={this.handleSubmit}
-                            className="col-10 justify-content-center offset-1"
+                            className="justify-content-center"
                         >
                             <FormGroup row>
-                                <Label className="col-12 col-xl-4 offset-1 offset-xl-4">
-                                    Nom:
+                                <Label className="col-xl-5 offset-xl-1">
+                                    Nom:{" "}
                                     <Input
                                         type="text"
                                         name="name"
@@ -75,8 +84,8 @@ class ContactContent extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-12 col-xl-4 offset-1 offset-xl-4">
-                                    Adresse e-mail :
+                                <Label className="col-xl-5">
+                                    Adresse e-mail :{" "}
                                     <Input
                                         type="email"
                                         name="email"
@@ -91,17 +100,58 @@ class ContactContent extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-12 col-xl-4 offset-1 offset-xl-4">
+                                <Label className="col-xl-5 offset-xl-3">
                                     Téléphone:{" "}
                                     <Input
                                         type="text"
                                         name="phone"
                                         value={phone}
+                                        invalid={
+                                            (phone.length < 10) & (phone !== "")
+                                        }
+                                        valid={
+                                            phone.length >= 10 ? true : false
+                                        }
                                         required
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-12 col-xl-4 offset-1 offset-xl-4">
+                                <Label className="col-xl-5 offset-xl-1">
+                                    Nature de la marchandise:{" "}
+                                    <Input
+                                        type="text"
+                                        name="cargoKind"
+                                        value={cargoKind}
+                                        required
+                                        onChange={this.handleChange}
+                                    />
+                                </Label>
+                                <Label className="col-xl-5">
+                                    Poids de la marchandise (Kg):{" "}
+                                    <Input
+                                        type="text"
+                                        name="cargoWeight"
+                                        value={cargoWeight}
+                                        invalid={cargoWeight > 50}
+                                        valid={
+                                            (cargoWeight <= 50) &
+                                            (cargoWeight > 0)
+                                        }
+                                        required
+                                        onChange={this.handleChange}
+                                    />
+                                </Label>
+                                <Label className="col-xl-5 offset-xl-3">
+                                    Dimension de la marchandise:{" "}
+                                    <Input
+                                        type="text"
+                                        name="cargoDimensions"
+                                        value={cargoDimensions}
+                                        required
+                                        onChange={this.handleChange}
+                                    />
+                                </Label>
+                                <Label className="col-xl-10 offset-xl-1">
                                     Message:{" "}
                                     <Input
                                         type="textarea"
@@ -115,9 +165,9 @@ class ContactContent extends React.Component {
                                     <Button
                                         color="success"
                                         type="submit"
-                                        className="text-white col-6 offset-2 col-xl-2 offset-xl-0"
+                                        className="text-white"
                                     >
-                                        Envoyer
+                                        Envoyer votre demande
                                     </Button>
                                 </Col>
                             </FormGroup>
@@ -129,4 +179,4 @@ class ContactContent extends React.Component {
     }
 }
 
-export default ContactContent;
+export default CotationForm;
