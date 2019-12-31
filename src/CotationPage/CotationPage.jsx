@@ -32,7 +32,7 @@ function CotationPage() {
     const [provCoord, setProvCoord] = useState("");
     const [destCoord, setDestCoord] = useState("");
     const [duration, SetDuration] = useState(0);
-    const [isCostCalculated, SetIsCostCalculated] = useState(false);
+    const [isCostCalculated, SetIsCostCalculated] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const [isVoid, setIsVoid] = useState(false);
 
@@ -114,7 +114,7 @@ function CotationPage() {
             <Container
                 className="border my-3"
                 id="cotationContainer"
-                style={{ minHeight: "70vh" }}
+                style={{ minHeight: "55vh" }}
             >
                 <Form className="my-3 col-10 offset-1">
                     <h4
@@ -176,7 +176,7 @@ function CotationPage() {
 
                 {isLoading ? (
                     <Row className="justify-content-center">
-                        <Col>
+                        <Col className="justify-content-center">
                             <Spinner type="grow" color="primary" />
                             <Spinner type="grow" color="secondary" />
                             <Spinner type="grow" color="success" />
@@ -199,10 +199,10 @@ function CotationPage() {
                         <Col xl={12} className="text-center my-2">
                             Distance de transport estimée : {distance} Km
                         </Col>
-                        <Col xl={4} className="text-center my-2 offset-2">
+                        <Col xl={5} className="text-center my-2 offset-1">
                             Cout estimé de la livraison : {cost} € HT
                         </Col>
-                        <Col xl={4} className="text-center my-2">
+                        <Col xl={5} className="text-center my-2">
                             Cout estimé de la livraison :{" "}
                             {Math.round((cost + cost * 0.2) * 100) / 100} € TTC
                         </Col>

@@ -1,47 +1,29 @@
-
-
 const calculation = async (distance, duration) => {
-    
     const termeJournalier = 12.01;
+    const fixUnder20Km = 9.15;
+    const pricePerKm = 0.7;
 
-    const termeJournalierPerMin = termeJournalier/8/60;
+    const termeJournalierPerMin = termeJournalier / 8 / 60;
 
     let distanceCost = 0;
     let durationCost = 0;
     let totalCost = 0;
-    
-    
 
+    if (distance < 20) {
+        distanceCost = Math.round(fixUnder20Km + distance * pricePerKm);
+        durationCost = Math.round(termeJournalierPerMin * duration * 100) / 100;
 
+        totalCost = distanceCost + durationCost;
 
-    if (distance<20) {
-
-        
-        distanceCost = Math.round(9.15 + (distance*0.7));
-        durationCost = Math.round(termeJournalierPerMin*duration*100)/100;
-
-        totalCost = distanceCost + durationCost
-
-        console.log(totalCost);
         return totalCost;
-
     } else {
+        distanceCost = Math.round(distance * pricePerKm);
+        durationCost = Math.round(termeJournalierPerMin * duration * 100) / 100;
 
-        distanceCost = Math.round(distance*0.7);
-        durationCost = Math.round(termeJournalierPerMin*duration*100)/100;
+        totalCost = distanceCost + durationCost;
 
-        totalCost = distanceCost + durationCost
-
-
-        console.log(totalCost);
         return totalCost;
-
     }
+};
 
-    
-    
-
-}
-
-
-export default calculation
+export default calculation;
