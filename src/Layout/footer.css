@@ -1,15 +1,14 @@
-#footer{
-
+#footer {
     background-color: rgb(151, 26, 22);
-    color : black;
+    color: black;
 }
 
-#footer a{
-
-    color : black;
+#footer a {
+    color: black;
 }
 
-#footer .navbar a:hover { 
+#footer .navbar a:hover {
     color: #fff !important;
     cursor: pointer;
- }
+    text-decoration: none;
+}

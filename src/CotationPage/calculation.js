@@ -30,6 +30,9 @@ const calculation = async (distance, duration) => {
         distanceCost = Math.round(distance*0.7);
         durationCost = Math.round(termeJournalierPerMin*duration*100)/100;
 
+        totalCost = distanceCost + durationCost
+
+
         console.log(totalCost);
         return totalCost;
 
