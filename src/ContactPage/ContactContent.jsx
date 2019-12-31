@@ -48,7 +48,7 @@ class ContactContent extends React.Component {
                 <h3 className="col-10 offset-1 text-center my-5">
                     Contactez-nous
                 </h3>
-                <Row className="col-xl-6 offset-xl-3 mt-xl-3 col-12 offset-1">
+                <Row className="col-xl-6 offset-xl-4 mt-xl-3 col-12 offset-1">
                     <p className="text-center">
                         Envoyez nous un message et nous reviendrons vers vous
                         dans les plus brefs délais
