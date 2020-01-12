@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 import { Form, Button } from "reactstrap";

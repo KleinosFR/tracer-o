@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Form, Label, Input, FormGroup, Button } from "reactstrap";
+import { toast } from "react-toastify";
 
 const encode = data => {
     return Object.keys(data)
@@ -23,18 +24,44 @@ class ContactContent extends React.Component {
         };
     }
 
-    /* Here’s the juicy bit for posting the form submission */
-
     handleSubmit = e => {
-        /* Check possibility to include yup librairy */
-
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.state })
         })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
+            .then(() =>
+                toast.success(
+                    <Col>
+                        Votre message a bien été envoyé, nous vous répondrons
+                        dans les plus brefs délais
+                    </Col>,
+                    {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true
+                    }
+                )
+            )
+            .catch(error =>
+                toast.error(
+                    <Col>
+                        Votre message n'a pas pu être envoyé. Veuillez essayer
+                        un peu plus tard, ou nous contacter par téléphone
+                    </Col>,
+                    {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true
+                    }
+                )
+            );
 
         e.preventDefault();
     };
