@@ -5,6 +5,7 @@ import GooglePlacesAutocomplete, {
 } from "react-google-places-autocomplete";
 import { Form, Button, Row, Col, Container, Spinner } from "reactstrap";
 import Axios from "axios";
+import { toast } from "react-toastify";
 
 import Layout from "../Layout/Layout";
 import CotationIntroText from "./CotationIntroText";
@@ -83,7 +84,20 @@ function CotationPage() {
 
                 // ****** TODO - manage API error *****
                 .catch(err => {
-                    console.log(err);
+                    toast.error(
+                        <Col>
+                            Impossible de trouver l'adresse, merci de réessayer
+                            plus tard
+                        </Col>,
+                        {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true
+                        }
+                    );
                 })
                 .finally(() => {
                     SetIsCostCalculated(true);
@@ -161,8 +175,12 @@ function CotationPage() {
                 {/* --- Display spinner while fetching api---  */}
 
                 {isLoading ? (
-                    <Row className="justify-content-center">
-                        <Col className="justify-items-center">
+                    <Row className="dflex justify-content-center">
+                        <Col
+                            lg={4}
+                            xl={4}
+                            className="d-flex justify-content-around"
+                        >
                             <Spinner type="grow" color="primary" />
                             <Spinner type="grow" color="secondary" />
                             <Spinner type="grow" color="success" />
@@ -211,6 +229,8 @@ function CotationPage() {
                             duration={duration}
                             distance={distance}
                             cost={cost}
+                            prov={prov}
+                            dest={dest}
                         />
                     </Row>
                 )}

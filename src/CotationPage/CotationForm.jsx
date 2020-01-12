@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Form, Label, Input, FormGroup, Button } from "reactstrap";
+import { toast } from "react-toastify";
 
 const encode = data => {
     return Object.keys(data)
@@ -20,27 +21,70 @@ class CotationForm extends React.Component {
             cargoKind: "",
             cargoWeight: "",
             cargoDimensions: "",
-            isSent: false,
-            isError: false,
-            isEmailValid: false,
+            provenance: this.props.prov,
+            destination: this.props.dest,
             cotationCost: this.props.cost,
             cotationDuration: this.props.duration,
-            cotationDistance: this.props.distance
+            cotationDistance: this.props.distance,
+            isSent: false,
+            isError: false,
+            isEmailValid: false
         };
     }
 
-    /* Here’s the juicy bit for posting the form submission */
-
     handleSubmit = e => {
-        /* Check possibility to include yup librairy */
+        const message = {
+            nom: this.state.name,
+            email: this.state.email,
+            telephone: this.state.phone,
+            message: this.state.message,
+            marchandise: this.state.cargoKind,
+            poids: this.state.cargoWeight,
+            dimensions: this.state.cargoDimensions,
+            provenance: this.state.prov,
+            destination: this.state.dest,
+            distanceTransport: this.state.cotationDistance,
+            tempsTransport: this.state.cotationDuration,
+            montantCalcul: this.state.cotationCost
+        };
 
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "cotation", ...this.state })
+            body: encode({ "form-name": "demandeDevis", message })
         })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
+            .then(() =>
+                toast.success(
+                    <Col>
+                        Votre demande de devis a bien été envoyée, nous vous
+                        répondrons dans les plus brefs délais
+                    </Col>,
+                    {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true
+                    }
+                )
+            )
+            .catch(error =>
+                toast.error(
+                    <Col>
+                        Votre demande n'a pas pu être envoyée. Veuillez essayer
+                        un peu plus tard, ou nous contacter par téléphone
+                    </Col>,
+                    {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true
+                    }
+                )
+            );
 
         e.preventDefault();
     };
