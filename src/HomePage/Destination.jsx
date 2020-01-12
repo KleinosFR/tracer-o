@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 
-import destinationMap from "../assets/img/kayakweb.jpg";
+// import destinationMap from "../assets/img/kayakweb.jpg";
 
 function Destination() {
     return (
@@ -22,7 +22,7 @@ function Destination() {
                 s’étend de la frontière espagnole, dans les Pyrénées Atlantiques
                 jusque dans les Landes voisines. La possibilité de livrer des
                 colis volumineux ou sur des distances plus longues sera étudiée
-                au cas par cas pour satisfaire le client.
+                au cas par cas afin de vous satisfaire au mieux.
             </Col>
         </Row>
     );
