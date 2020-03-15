@@ -37,7 +37,10 @@ function Footer(props) {
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink>Mentions légales</NavLink>
+                        <NavLink onClick={() => handleLink("/cgu")}>
+                            {" "}
+                            Mentions légales
+                        </NavLink>
                     </NavItem>
                 </Nav>
                 <Nav
