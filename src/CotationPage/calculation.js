@@ -1,7 +1,7 @@
 const calculation = async (distance, duration) => {
     const termeJournalier = 12.01;
     const fixUnder20Km = 9.15;
-    const pricePerKm = 0.7;
+    const pricePerKm = 1.1;
 
     const termeJournalierPerMin = termeJournalier / 8 / 60;
 
