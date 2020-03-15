@@ -53,7 +53,7 @@ class CotationForm extends React.Component {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "demandeDevis", message })
+            body: encode({ "form-name": "demandeDevis", ...message })
         })
             .then(() =>
                 toast.success(
