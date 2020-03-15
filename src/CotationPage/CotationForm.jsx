@@ -41,12 +41,14 @@ class CotationForm extends React.Component {
             marchandise: this.state.cargoKind,
             poids: this.state.cargoWeight,
             dimensions: this.state.cargoDimensions,
-            provenance: this.state.prov,
-            destination: this.state.dest,
+            provenance: this.state.provenance,
+            destination: this.state.destination,
             distanceTransport: this.state.cotationDistance,
             tempsTransport: this.state.cotationDuration,
             montantCalcul: this.state.cotationCost
         };
+
+        console.log(message);
 
         fetch("/", {
             method: "POST",

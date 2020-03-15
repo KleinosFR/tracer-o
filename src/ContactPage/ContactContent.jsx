@@ -30,7 +30,7 @@ class ContactContent extends React.Component {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.state })
         })
-            .then(() =>
+            .then(() => {
                 toast.success(
                     <Col>
                         Votre message a bien été envoyé, nous vous répondrons
@@ -44,8 +44,19 @@ class ContactContent extends React.Component {
                         pauseOnHover: false,
                         draggable: true
                     }
-                )
-            )
+                );
+                this.setState({ isSent: true });
+            })
+            .then(() => {
+                const { isSent } = this.state;
+                isSent &&
+                    this.setState({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        message: ""
+                    });
+            })
             .catch(error =>
                 toast.error(
                     <Col>
