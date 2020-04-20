@@ -13,12 +13,12 @@ function Destination() {
                 <img
                     width="100%"
                     src="https://www.touradour.com/torent/images/france-aquitaine-torent.png"
-                    alt="zone de livraison pays basque sud landes"
+                    alt="zone de livraison Bayonne pays basque sud landes"
                     className=""
                 />
             </Col>
             <Col xl={7} lg={6} className="text-justify align-self-start">
-                Nous sommes capables de livrer vos colis dans une zone qui
+                Notre société, basée en périphérie de Bayonne est en mesure de livrer vos colis dans une zone qui
                 s’étend de la frontière espagnole, dans les Pyrénées Atlantiques
                 jusque dans les Landes voisines. La possibilité de livrer des
                 colis volumineux ou sur des distances plus longues sera étudiée
