@@ -18,7 +18,7 @@ function Intro() {
                 <img
                     width="100%"
                     src={logoFull}
-                    alt="Tracer-o Transport de Marchandises et de Colis Express"
+                    alt="Tracer-o Transporteur Colis Express bayonne pays basque sud landes"
                     className=""
                 />
             </Col>
