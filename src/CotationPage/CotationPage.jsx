@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import GooglePlacesAutocomplete, {
     geocodeByAddress,
-    getLatLng
+    getLatLng,
 } from "react-google-places-autocomplete";
-import { Form, Button, Row, Col, Container, Spinner } from "reactstrap";
+import {
+    Form,
+    Button,
+    Row,
+    Col,
+    Container,
+    Spinner,
+    Input,
+    Label,
+    InputGroupAddon,
+    InputGroupText,
+    InputGroup,
+} from "reactstrap";
 import Axios from "axios";
 import { toast } from "react-toastify";
 
@@ -23,21 +35,22 @@ function CotationPage() {
     const [isCostCalculated, SetIsCostCalculated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isVoid, setIsVoid] = useState(false);
+    const [cargoWeight, setCargoWeight] = useState("");
 
-    const handleProv = provResult => {
+    const handleProv = (provResult) => {
         setProv(provResult);
         geocodeByAddress(provResult)
-            .then(results => getLatLng(results[0]))
-            .then(res => {
+            .then((results) => getLatLng(results[0]))
+            .then((res) => {
                 setProvCoord(`${res.lat},${res.lng}`);
             });
     };
 
-    const handleDest = destResult => {
+    const handleDest = (destResult) => {
         setDest(destResult);
         geocodeByAddress(destResult)
-            .then(results => getLatLng(results[0]))
-            .then(res => {
+            .then((results) => getLatLng(results[0]))
+            .then((res) => {
                 setDestCoord(`${res.lat},${res.lng}`);
             });
     };
@@ -57,15 +70,15 @@ function CotationPage() {
                         "content-type": "application/octet-stream",
                         "x-rapidapi-host": "trueway-matrix.p.rapidapi.com",
                         "x-rapidapi-key":
-                            "0bbcb96186msh0b9fd431da4fd2ap143412jsnda868713ef1d"
+                            "0bbcb96186msh0b9fd431da4fd2ap143412jsnda868713ef1d",
                     },
                     params: {
                         destinations: destCoord,
-                        origins: provCoord
-                    }
+                        origins: provCoord,
+                    },
                 }
             )
-                .then(async response => {
+                .then(async (response) => {
                     const calcDistance = response.data.distances[0];
                     const calcDuration = response.data.durations[0];
                     await SetDistance(calcDistance[0] / 1000);
@@ -77,13 +90,13 @@ function CotationPage() {
                 .then(async () => {
                     const calcCost = await calculation(
                         distanceVar,
-                        durationVar
+                        cargoWeight
                     );
                     await SetCost(calcCost);
                 })
 
                 // ****** TODO - manage API error *****
-                .catch(err => {
+                .catch((err) => {
                     toast.error(
                         <Col>
                             Impossible de trouver l'adresse, merci de réessayer
@@ -95,7 +108,7 @@ function CotationPage() {
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: false,
-                            draggable: true
+                            draggable: true,
                         }
                     );
                 })
@@ -116,43 +129,69 @@ function CotationPage() {
                 id="cotationContainer"
                 style={{ minHeight: "55vh" }}
             >
-                <Form className="my-3 col-10 offset-1">
+                <Form className="my-3 col-12">
                     <h4
                         style={{ fontFamily: "Roboto", fontSize: "28px" }}
                         className="text-center my-4"
                     >
                         Estimez votre coût de transport
                     </h4>
-                    <GooglePlacesAutocomplete
-                        autocompletionRequest={{
-                            componentRestrictions: {
-                                country: ["fr", "es"]
-                            },
-                            bebounce: 1000
-                        }}
-                        placeholder="Adresse de prise en charge"
-                        onSelect={res => handleProv(res.description)}
-                        required
-                        inputClassName="form-control my-2 col-12 offset-xl-3 col-xl-6"
-                    />
-                    <GooglePlacesAutocomplete
-                        autocompletionRequest={{
-                            componentRestrictions: {
-                                country: ["fr", "es"]
-                            },
-                            bebounce: 1000
-                        }}
-                        placeholder="Adresse de livraison"
-                        onSelect={res => handleDest(res.description)}
-                        required
-                        inputClassName="form-control my-2 col-12 offset-xl-3 col-xl-6"
-                    />
+                    <Row>
+                        <GooglePlacesAutocomplete
+                            autocompletionRequest={{
+                                componentRestrictions: {
+                                    country: ["fr", "es"],
+                                },
+                                bebounce: 1000,
+                            }}
+                            placeholder="Adresse de prise en charge"
+                            onSelect={(res) => handleProv(res.description)}
+                            required
+                            inputClassName="form-control my-2 col-12 offset-xl-3 col-xl-6"
+                        />
+                        <GooglePlacesAutocomplete
+                            autocompletionRequest={{
+                                componentRestrictions: {
+                                    country: ["fr", "es"],
+                                },
+                                bebounce: 1000,
+                            }}
+                            placeholder="Adresse de livraison"
+                            onSelect={(res) => handleDest(res.description)}
+                            required
+                            inputClassName="form-control my-2 col-12 offset-xl-3 col-xl-6"
+                        />
+                        <InputGroup className="my-2 col-12 offset-xl-4 col-xl-4">
+                            <Input
+                                placeholder="Poids de la marchandise"
+                                type="text"
+                                name="cargoWeight"
+                                value={cargoWeight}
+                                invalid={
+                                    cargoWeight > 500 ||
+                                    (cargoWeight !== "" && isNaN(cargoWeight))
+                                }
+                                valid={(cargoWeight <= 500) & (cargoWeight > 0)}
+                                required
+                                onChange={(e) => setCargoWeight(e.target.value)}
+                            />
+                            <InputGroupAddon addonType="append">
+                                <InputGroupText>Kg</InputGroupText>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </Row>
                     <Row>
                         <Col className="my-2 text-center">
                             <Button
                                 className="center"
                                 color="success"
                                 onClick={() => handleDistance(prov, dest)}
+                                disabled={
+                                    !dest ||
+                                    !prov ||
+                                    !cargoWeight ||
+                                    isNaN(cargoWeight)
+                                }
                             >
                                 Calculer
                             </Button>
@@ -207,7 +246,7 @@ function CotationPage() {
                             style={{
                                 fontSize: "12px",
                                 color: "red",
-                                border: "1px solid"
+                                border: "1px solid",
                             }}
                         >
                             Cette estimation n'a aucune valeur contractuelle. Le
@@ -231,6 +270,7 @@ function CotationPage() {
                             cost={cost}
                             prov={prov}
                             dest={dest}
+                            weigth={cargoWeight}
                         />
                     </Row>
                 )}
