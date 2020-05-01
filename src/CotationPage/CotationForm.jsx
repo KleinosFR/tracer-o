@@ -2,10 +2,11 @@ import React from "react";
 import { Row, Col, Form, Label, Input, FormGroup, Button } from "reactstrap";
 import { toast } from "react-toastify";
 
-const encode = data => {
+const encode = (data) => {
     return Object.keys(data)
         .map(
-            key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+            (key) =>
+                encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
         )
         .join("&");
 };
@@ -19,7 +20,7 @@ class CotationForm extends React.Component {
             phone: "",
             message: "",
             cargoKind: "",
-            cargoWeight: "",
+            cargoWeight: this.props.weight,
             cargoDimensions: "",
             provenance: this.props.prov,
             destination: this.props.dest,
@@ -28,32 +29,30 @@ class CotationForm extends React.Component {
             cotationDistance: this.props.distance,
             isSent: false,
             isError: false,
-            isEmailValid: false
+            isEmailValid: false,
         };
     }
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         const message = {
             nom: this.state.name,
             email: this.state.email,
             telephone: this.state.phone,
             message: this.state.message,
             marchandise: this.state.cargoKind,
-            poids: this.state.cargoWeight,
+            poids: this.props.cargoWeight,
             dimensions: this.state.cargoDimensions,
             provenance: this.state.provenance,
             destination: this.state.destination,
             distanceTransport: this.state.cotationDistance,
             tempsTransport: this.state.cotationDuration,
-            montantCalcul: this.state.cotationCost
+            montantCalcul: this.state.cotationCost,
         };
-
-        console.log(message);
 
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "demandeDevis", ...message })
+            body: encode({ "form-name": "demandeDevis", ...message }),
         })
             .then(() =>
                 toast.success(
@@ -67,11 +66,11 @@ class CotationForm extends React.Component {
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: false,
-                        draggable: true
+                        draggable: true,
                     }
                 )
             )
-            .catch(error =>
+            .catch((error) =>
                 toast.error(
                     <Col>
                         Votre demande n'a pas pu être envoyée. Veuillez essayer
@@ -83,7 +82,7 @@ class CotationForm extends React.Component {
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: false,
-                        draggable: true
+                        draggable: true,
                     }
                 )
             );
@@ -91,7 +90,7 @@ class CotationForm extends React.Component {
         e.preventDefault();
     };
 
-    handleChange = e => this.setState({ [e.target.name]: e.target.value });
+    handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     render() {
         const {
@@ -101,7 +100,6 @@ class CotationForm extends React.Component {
             phone,
             cargoDimensions,
             cargoKind,
-            cargoWeight
         } = this.state;
         return (
             <Row>
@@ -119,7 +117,7 @@ class CotationForm extends React.Component {
                             className="justify-content-center"
                         >
                             <FormGroup row>
-                                <Label className="col-xl-5 offset-xl-1">
+                                <Label className="col-xl-8 offset-xl-2">
                                     Nom:{" "}
                                     <Input
                                         type="text"
@@ -130,7 +128,7 @@ class CotationForm extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-xl-5">
+                                <Label className="col-xl-5 offset-xl-1">
                                     Adresse e-mail :{" "}
                                     <Input
                                         type="email"
@@ -146,7 +144,7 @@ class CotationForm extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-xl-5 offset-xl-3">
+                                <Label className="col-xl-5">
                                     Téléphone:{" "}
                                     <Input
                                         type="text"
@@ -172,22 +170,7 @@ class CotationForm extends React.Component {
                                         onChange={this.handleChange}
                                     />
                                 </Label>
-                                <Label className="col-xl-5">
-                                    Poids de la marchandise (Kg):{" "}
-                                    <Input
-                                        type="text"
-                                        name="cargoWeight"
-                                        value={cargoWeight}
-                                        invalid={cargoWeight > 50}
-                                        valid={
-                                            (cargoWeight <= 50) &
-                                            (cargoWeight > 0)
-                                        }
-                                        required
-                                        onChange={this.handleChange}
-                                    />
-                                </Label>
-                                <Label className="col-xl-5 offset-xl-3">
+                                <Label className="col-xl-5 ">
                                     Dimension de la marchandise:{" "}
                                     <Input
                                         type="text"
