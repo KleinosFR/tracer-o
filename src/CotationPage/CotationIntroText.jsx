@@ -9,20 +9,18 @@ function CotationIntroText() {
             md={10}
             lg={12}
             xl={12}
-            className="d-flex col my-5 justify-content-center col-xl-12 col-10 col-md-10 offset-1 offset-xl-0"
+            className="d-flex col my-5 justify-content-center col-xl-10 col-10 col-md-10 offset-1 offset-xl-1"
         >
-            <p className="text-left">
+            <h3 className="text-center">
                 Nous vous offrons la possibilité d'obtenir une estimation du
                 coût de transport de votre marchandise.
-            </p>
+            </h3>
             <p className="text-left">
+                <br />
                 Attention, cette estimation n'est valable que pour vos colis
-                d'un poids maximum de 50 Kg, et d'une dimension maximale de 50cm
-                X 50cm X 50cm.
-            </p>
-            <p className="text-left">
-                Pour tout colis au delà de ces dimensions veuillez nous
-                contacter directement via notre{" "}
+                d'un poids maximum de 500 Kg, et d'une dimension maximale de
+                50cm X 50cm X 50cm. <br /> Pour tout colis au delà de ces
+                dimensions veuillez nous contacter directement via notre{" "}
                 <Link to="/contact" style={{ color: "darkgreen" }}>
                     formulaire de contact
                 </Link>
