@@ -270,7 +270,7 @@ function CotationPage() {
                             cost={cost}
                             prov={prov}
                             dest={dest}
-                            weigth={cargoWeight}
+                            weight={cargoWeight}
                         />
                     </Row>
                 )}
