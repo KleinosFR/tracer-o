@@ -40,7 +40,7 @@ class CotationForm extends React.Component {
             telephone: this.state.phone,
             message: this.state.message,
             marchandise: this.state.cargoKind,
-            poids: this.props.cargoWeight,
+            poids: this.state.cargoWeight,
             dimensions: this.state.cargoDimensions,
             provenance: this.state.provenance,
             destination: this.state.destination,
