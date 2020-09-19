@@ -1,176 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-151350509-3"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
 
-            gtag("config", "UA-151350509-3");
-        </script>
-        <!-- Hotjar Tracking Code for www.tracer-o.fr -->
-        <script>
-            (function (h, o, t, j, a, r) {
-                h.hj =
-                    h.hj ||
-                    function () {
-                        (h.hj.q = h.hj.q || []).push(arguments);
-                    };
-                h._hjSettings = { hjid: 1773231, hjsv: 6 };
-                a = o.getElementsByTagName("head")[0];
-                r = o.createElement("script");
-                r.async = 1;
-                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(
-                window,
-                document,
-                "https://static.hotjar.com/c/hotjar-",
-                ".js?sv="
-            );
-        </script>
-        <meta charset="utf-8" />
-        <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="/apple-icon-57x57.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-icon-180x180.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="/android-icon-192x192.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="/favicon-96x96.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta
-            name="description"
-            content="Tracer-o, votre partenaire de Messagerie express et de Transport de colis dans le secteur Pays Basque et Sud Landes.
-      Confiez-nous vos marchandises pour un service personalisé et professionel. Obtenez votre estimation en ligne et n'hésitez à nous contacter pour tous vos besoins de livraison.."
-        />
-        <meta
-            name="keyword"
-            content="messagerie transport livraison colis Tracer-o marchandise paquets paquet marchandises trajet bayonne pays basque dax landes boucau seignanx rapide"
-        />
-        <title>
-            Tracer-ô - Transport de colis express Pays Basque et Sud Landes
-        </title>
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Faster+One&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-        <script
-            type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGhfvByiykJT6P9V2R_cuCN3vWzRUJQrk&libraries=places"
-        ></script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151350509-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-        <!-- A little help for the Netlify bots if you're not using a SSG -->
-        <!--- Contact form-->
-        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="text" name="phone" />
-            <textarea name="message"></textarea>
-        </form>
+        gtag("config", "UA-151350509-3");
+    </script>
+    <!-- Hotjar Tracking Code for www.tracer-o.fr -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj =
+                h.hj ||
+                function () {
+                    (h.hj.q = h.hj.q || []).push(arguments);
+                };
+            h._hjSettings = { hjid: 1773231, hjsv: 6 };
+            a = o.getElementsByTagName("head")[0];
+            r = o.createElement("script");
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(
+            window,
+            document,
+            "https://static.hotjar.com/c/hotjar-",
+            ".js?sv="
+        );
+    </script>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description"
+        content="Tracer-o, votre partenaire de Messagerie express et de Transport de colis dans le secteur Pays Basque et Sud Landes.
+      Confiez-nous vos marchandises pour un service personalisé et professionel. Obtenez votre estimation en ligne et n'hésitez à nous contacter pour tous vos besoins de livraison.." />
+    <meta name="keyword"
+        content="messagerie transport livraison colis Tracer-o marchandise paquets paquet marchandises trajet bayonne pays basque dax landes boucau seignanx rapide" />
+    <title>
+        Tracer-ô - Transport de colis express Pays Basque et Sud Landes
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
 
-        <form name="demandeDevis" netlify netlify-honeypot="bot-field" hidden>
-            <input type="text" name="nom" />
-            <input type="email" name="email" />
-            <input type="text" name="telephone" />
-            <textarea name="message"></textarea>
-            <input type="text" name="marchandise" />
-            <input type="text" name="poids" />
-            <input type="text" name="dimensions" />
-            <input type="text" name="provenance" />
-            <input type="text" name="destination" />
-            <input type="text" name="distanceTransport" />
-            <input type="text" name="tempsTransport" />
-            <input type="text" name="montantCalcul" />
-        </form>
-    </body>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- A little help for the Netlify bots if you're not using a SSG -->
+    <!--- Contact form-->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="phone" />
+        <textarea name="message"></textarea>
+    </form>
+
+    <form name="demandeDevis" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="nom" />
+        <input type="email" name="email" />
+        <input type="text" name="telephone" />
+        <textarea name="message"></textarea>
+        <input type="text" name="marchandise" />
+        <input type="text" name="poids" />
+        <input type="text" name="dimensions" />
+        <input type="text" name="provenance" />
+        <input type="text" name="destination" />
+        <input type="text" name="distanceTransport" />
+        <input type="text" name="tempsTransport" />
+        <input type="text" name="montantCalcul" />
+    </form>
+</body>
+
 </html>
