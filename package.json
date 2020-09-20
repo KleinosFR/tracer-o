@@ -12,7 +12,7 @@
         "react-dom": "^16.11.0",
         "react-google-places-autocomplete": "^3.0.0",
         "react-router-dom": "^5.1.2",
-        "react-scripts": "^3.4.1",
+        "react-scripts": "^3.4.3",
         "react-toastify": "^5.5.0",
         "reactstrap": "^8.1.1"
     },
