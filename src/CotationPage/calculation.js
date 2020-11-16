@@ -7,6 +7,8 @@ const TARIF = [
     [1.32, 1.26, 1.1, 0.99],
 ];
 
+const REBATE = 10 // percent of rebate to apply
+
 const calculation = async (distance, weight) => {
     let distanceIdx = null;
     let weightIdx = null;
@@ -51,7 +53,9 @@ const calculation = async (distance, weight) => {
             break;
     }
 
-    const totalCost = Math.round(distance * TARIF[weightIdx][distanceIdx]);
+    const initialCost = Math.round(distance * TARIF[weightIdx][distanceIdx])
+
+    const totalCost = Math.round(initialCost *(100-REBATE) /100)
 
     return totalCost;
 };
